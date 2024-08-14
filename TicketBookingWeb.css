@@ -1,0 +1,167 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #e9ecef;
+    color: #333;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+#menu button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#menu button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#plane-seats {
+    display: grid;
+    grid-template-columns: repeat(14, 40px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    background-color: #28a745;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+}
+
+.seat:hover {
+    transform: scale(1.1);
+    background-color: #218838;
+}
+
+.seat::after {
+    content: attr(data-info);
+    position: absolute;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+}
+
+.seat:hover::after {
+    display: block;
+}
+
+.sold {
+    background-color: #dc3545;
+    cursor: not-allowed;
+}
+
+.selected {
+    background-color: #ffc107;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-group input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 600px) {
+    #plane-seats {
+        grid-template-columns: repeat(7, 40px);
+        gap: 5px;
+    }
+
+    #menu button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
